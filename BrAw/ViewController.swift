@@ -7,13 +7,85 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource
+{
+
+    @IBOutlet weak var totalCounter: UILabel!
+    @IBOutlet var images: [UIImageView]!
+    
+    @IBOutlet weak var tableView: UITableView!
+    
+    var items:[String] = []
+    var total:[Double] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        tableView.delegate = self
+        tableView.dataSource = self
     }
 
+    @IBAction func whenCoffeeImgPressed(_ sender: Any) {
+        let newItem = "Coffee"
+        items.append(newItem)
+        tableView.reloadData()
+        total.append(1.75)
+        totalCounter.text = "$\(moneyOwed())"
+        
+    }
+    
+    @IBAction func whenTeaImgPressed(_ sender: Any) {
+        let newItem = "Tea"
+        items.append(newItem)
+        tableView.reloadData()
+        total.append(1.00)
+        print(total)
+        totalCounter.text = "$\(moneyOwed())"
+    }
+    
+    @IBAction func whenFlavorPressed(_ sender: Any) {
+        let newItem = "Flavor"
+        items.append(newItem)
+        tableView.reloadData()
+        total.append(0.25)
+        totalCounter.text = "$\(moneyOwed())"
+    }
+    
+    func moneyOwed() -> String {
+        let sum = total.reduce(0,+)
+        let myDouble = String(format: "%.2f", sum)
+        return myDouble
+    }
 
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {
+        return items.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+    {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "myCell")!
+        cell.textLabel?.text = items[indexPath.row]
+        return cell
+    }
+    
+    // Delete things from table view
+//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath)
+//    {
+//        if editingStyle == UITableViewCell.EditingStyle.delete
+//        {
+//            items.remove(at: indexPath.row)
+//            tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
+//
+//
+//        }
+//
+//    }
+    @IBAction func whenClearPressed(_ sender: Any) {
+        total.removeAll()
+        totalCounter.text = "$0.00"
+        
+        items.removeAll()
+        tableView.reloadData()
+    }
+    
 }
-

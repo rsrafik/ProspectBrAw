@@ -8,6 +8,8 @@
 import UIKit
 
 class CheckoutViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+
+    @IBOutlet weak var collectionView: UICollectionView!
     
     var seriesImage: [String] = ["1", "5", "10", "25", "oneDollar", "fiveDollar", "tenDollar", "twentyDollar"]
     
@@ -16,16 +18,30 @@ class CheckoutViewController: UIViewController, UICollectionViewDelegate, UIColl
         
     }
 
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return seriesImage.count
+    @IBAction func whenPennyPressed(_ sender: Any) {
+    }
+    
+    @IBAction func whenNickelPressed(_ sender: Any) {
+    }
+    @IBAction func whenDimePressed(_ sender: Any) {
+    }
+    @IBAction func whenQuarterPressed(_ sender: Any) {
+    }
+    @IBAction func whenOnePressed(_ sender: Any) {
+    }
+    @IBAction func whenFivePressed(_ sender: Any) {
+    }
+    @IBAction func whenTenPressed(_ sender: Any) {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "myCell", for: indexPath) as! CollectionViewCell
-        cell.penny.image = UIImage(named: seriesImage [indexPath.row])
-        cell.penny.layer.cornerRadius = 50.0
-        return cell
+        <#code#>
     }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        <#code#>
+    }
+
 }
 
     
