@@ -68,22 +68,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return cell
     }
     
-    // Delete things from table view
-//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath)
-//    {
-//        if editingStyle == UITableViewCell.EditingStyle.delete
-//        {
-//            items.remove(at: indexPath.row)
-//            tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
-//
-//
-//        }
-//
-//    }
     @IBAction func whenClearPressed(_ sender: Any) {
         total.removeAll()
         totalCounter.text = "$0.00"
-        
         items.removeAll()
         tableView.reloadData()
     }
