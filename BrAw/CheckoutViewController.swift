@@ -11,19 +11,10 @@ class CheckoutViewController: UIViewController
 {
     
     var moneyUsed: [String] = []
+    var amountDue = Double()
+    
     @IBOutlet weak var totalPaid: UILabel!
     var totalPay: [Double] = []
-    let moneyImages: [UIImage] = [
-        UIImage(named: "1")!,
-    UIImage(named: "5")!,
-    UIImage(named: "10")!,
-    UIImage(named: "25")!,
-    UIImage(named: "oneDollar")!,
-    UIImage(named: "fiveDollar")!,
-    UIImage(named: "tenDollar")!,
-    ]
-    
-    var stuff: [UIImage] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,38 +22,31 @@ class CheckoutViewController: UIViewController
     }
 
     @IBAction func whenPennyPressed(_ sender: Any) {
-        totalPay.append(0.01)
-        totalPaid.text = "$\(moneyOwed())"
+        pressed(i: 0.01)
     }
     
     @IBAction func whenNickelPressed(_ sender: Any) {
-        totalPay.append(0.05)
-        totalPaid.text = "$\(moneyOwed())"
+        pressed(i: 0.05)
     }
     
     @IBAction func whenDimePressed(_ sender: Any) {
-        totalPay.append(0.10)
-        totalPaid.text = "$\(moneyOwed())"
+        pressed(i: 0.10)
     }
     
     @IBAction func whenQuarterPressed(_ sender: Any) {
-        totalPay.append(0.25)
-        totalPaid.text = "$\(moneyOwed())"
+        pressed(i: 0.25)
     }
     
     @IBAction func whenOnePressed(_ sender: Any) {
-        totalPay.append(1.00)
-        totalPaid.text = "$\(moneyOwed())"
+        pressed(i: 1.00)
     }
     
     @IBAction func whenFivePressed(_ sender: Any) {
-        totalPay.append(5.00)
-        totalPaid.text = "$\(moneyOwed())"
+        pressed(i: 5.00)
     }
     
     @IBAction func whenTenPressed(_ sender: Any) {
-        totalPay.append(10.00)
-        totalPaid.text = "$\(moneyOwed())"
+        pressed(i: 10.00)
     }
     
     func moneyOwed() -> String {
@@ -73,6 +57,18 @@ class CheckoutViewController: UIViewController
     @IBAction func clear(_ sender: Any) {
         totalPay.removeAll()
         totalPaid.text = "$0.00"
+    }
+    
+    func pressed(i: Double) {
+        totalPay.append(i)
+        totalPaid.text = "$\(moneyOwed())"
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let sum = totalPay.reduce(0,+)
+        let lvc = segue.destination as! ChangeViewController
+        lvc.amountPaid = sum
+        lvc.amountDue = amountDue
     }
 
 

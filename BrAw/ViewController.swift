@@ -50,6 +50,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         totalCounter.text = "$\(moneyOwed())"
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let sum = total.reduce(0,+)
+        let lvc = segue.destination as! CheckoutViewController
+        lvc.amountDue = sum
+    }
+    
     func moneyOwed() -> String {
         let sum = total.reduce(0,+)
         let myDouble = String(format: "%.2f", sum)
@@ -63,7 +69,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "myCell")!
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")!
         cell.textLabel?.text = items[indexPath.row]
         return cell
     }
