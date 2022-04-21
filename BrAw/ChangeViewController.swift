@@ -70,40 +70,6 @@ class ChangeViewController: UIViewController {
     }
 }
 
-        
-        
-        
-        
-        
-        
-        
-        
-        
-//        var change = amountPaid - amountDue
-//        var zero1 = 0
-//        var zero2 = 0
-//        var zero3 = 0
-//        while change > 0 {
-//            while change >= 5 {
-//                change -= 5
-//                zero1 += 1
-//                fiveDollarLabel.text = "\(zero1)"
-//            }
-//            while change >= 1 && change < 5 {
-//                change -= 1
-//                zero2 += 1
-//                oneDollarLabel.text = "\(zero2)"
-//            }
-//            while change >= 0.25 && change < 1 {
-//                change -= 0.25
-//                zero3 += 1
-//                quarterLabel.text = "\(zero3)"
-//            }
-//
-//        }
-//
-//
-
 
 
 
