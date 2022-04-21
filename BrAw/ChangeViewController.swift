@@ -7,7 +7,8 @@
 
 import UIKit
 
-class ChangeViewController: UIViewController {
+class ChangeViewController: UIViewController
+{
 
     @IBOutlet weak var pennyLabel: UILabel!
     @IBOutlet weak var nickelLabel: UILabel!
@@ -19,6 +20,8 @@ class ChangeViewController: UIViewController {
     var amountDue = Double()
     var amountPaid = Double()
     @IBOutlet weak var changeDue: UILabel!
+    var fullyPaid = true
+    let alert = UIAlertController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,11 +67,28 @@ class ChangeViewController: UIViewController {
                     oneDollarLabel.text = "\(zero4)"
                 }
             }
+            fullyPaid = true
         } else {
-            
+            fullyPaid = false
         }
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if fullyPaid == false {
+            let alert = UIAlertController(title: "Not enough money", message: nil, preferredStyle: UIAlertController.Style.alert)
+            
+            let okay = UIAlertAction(title: "Try Again", style: .default)
+            alert.addAction(okay)
+            present(alert, animated: true, completion: nil)
+            if okay.isEnabled {
+                
+            }
+        }
+
+    }
+
 }
+
 
 
 
