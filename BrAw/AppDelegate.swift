@@ -1,10 +1,3 @@
-//
-//  AppDelegate.swift
-//  BrAw
-//
-//  Created by Rachel Rafik on 3/10/22.
-//
-
 import UIKit
 
 @main

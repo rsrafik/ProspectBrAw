@@ -1,10 +1,3 @@
-//
-//  ViewController.swift
-//  BrAw
-//
-//  Created by Rachel Rafik on 3/10/22.
-//
-
 import UIKit
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource
@@ -15,7 +8,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBOutlet weak var tableView: UITableView!
     
+    
     var items:[String] = []
+    
     var total:[Double] = []
     
     override func viewDidLoad() {
