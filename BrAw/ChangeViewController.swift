@@ -22,7 +22,9 @@ class ChangeViewController: UIViewController, UICollectionViewDataSource, UIColl
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        let change = amountPaid - amountDue
+        var change = amountPaid - amountDue
+        change = abs(change)
+        print(change)
         let myDouble = String(format: "%.2f", change)
         changeDue.text = "$\(myDouble)"
         
@@ -35,7 +37,7 @@ class ChangeViewController: UIViewController, UICollectionViewDataSource, UIColl
         
         if z >= 0
         {
-            while z > 0
+            while z >= 0.01
             {
                 while (z >= 5)
                 {
@@ -52,22 +54,18 @@ class ChangeViewController: UIViewController, UICollectionViewDataSource, UIColl
                     z -= 0.25
                     seriesImage.append("25")
                 }
-                while (z >= 0.10 && z < 0.25)
+                while (z >= 0.09 && z < 0.25)
                 {
                     z -= 0.10
                     seriesImage.append("10")
                     
                 }
-                while (z >= 0.05 && z < 0.10)
+                while (z >= 0.05 && z < 0.09)
                 {
                     z -= 0.05
                     seriesImage.append("5")
                 }
-                while (z >= 0.01 && z < 0.05)
-                {
-                    z -= 0.01
-                    seriesImage.append("1")
-                }
+                print(z)
                 
             }
             fullyPaid = true
