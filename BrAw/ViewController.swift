@@ -19,7 +19,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.dataSource = self
     }
 
-    @IBAction func whenCoffeeImgPressed(_ sender: Any) {
+    @IBAction func whenCoffeeImgPressed(_ sender: Any)
+    {
         let newItem = "Coffee"
         items.append(newItem)
         tableView.reloadData()
@@ -28,7 +29,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
     }
     
-    @IBAction func whenTeaImgPressed(_ sender: Any) {
+    @IBAction func whenTeaImgPressed(_ sender: Any)
+    {
         let newItem = "Tea"
         items.append(newItem)
         tableView.reloadData()
@@ -37,7 +39,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         totalCounter.text = "$\(moneyOwed())"
     }
     
-    @IBAction func whenFlavorPressed(_ sender: Any) {
+    @IBAction func whenFlavorPressed(_ sender: Any)
+    {
         let newItem = "Flavor"
         items.append(newItem)
         tableView.reloadData()
@@ -45,7 +48,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         totalCounter.text = "$\(moneyOwed())"
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
         let sum = total.reduce(0,+)
         let lvc = segue.destination as! CheckoutViewController
         lvc.amountDue = sum
@@ -69,7 +73,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return cell
     }
     
-    @IBAction func whenClearPressed(_ sender: Any) {
+    @IBAction func whenClearPressed(_ sender: Any)
+    {
         total.removeAll()
         totalCounter.text = "$0.00"
         items.removeAll()

@@ -2,7 +2,6 @@ import UIKit
 
 class ChangeViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate
 {
-
     @IBOutlet weak var pennyLabel: UILabel!
     @IBOutlet weak var nickelLabel: UILabel!
     @IBOutlet weak var dimeLabel: UILabel!
@@ -20,7 +19,8 @@ class ChangeViewController: UIViewController, UICollectionViewDataSource, UIColl
     var fullyPaid = true
     let alert = UIAlertController()
     
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
         let change = amountPaid - amountDue
         let myDouble = String(format: "%.2f", change)
@@ -42,14 +42,33 @@ class ChangeViewController: UIViewController, UICollectionViewDataSource, UIColl
                     z -= 5
                     seriesImage.append("fiveDollar")
                 }
-                while (z >= 1 && z < 5) {
+                while (z >= 1 && z < 5)
+                {
                     z -= 1
                     seriesImage.append("oneDollar")
                 }
-                while (z >= 0.25 && z < 1) {
+                while (z >= 0.25 && z < 1)
+                {
                     z -= 0.25
                     seriesImage.append("25")
                 }
+                while (z >= 0.10 && z < 0.25)
+                {
+                    z -= 0.10
+                    seriesImage.append("10")
+                    
+                }
+                while (z >= 0.05 && z < 0.10)
+                {
+                    z -= 0.05
+                    seriesImage.append("5")
+                }
+                while (z >= 0.01 && z < 0.05)
+                {
+                    z -= 0.01
+                    seriesImage.append("1")
+                }
+                
             }
             fullyPaid = true
         } else {
@@ -57,26 +76,33 @@ class ChangeViewController: UIViewController, UICollectionViewDataSource, UIColl
         }
         
         if seriesImage.count > 2 {
-            scroll.text = "SCROLL TO SEE ALL BILLS"
+            scroll.text = "SCROLL TO SEE ALL CHANGE"
         }
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        if fullyPaid == false {
+    override func viewDidAppear(_ animated: Bool)
+    {
+        if fullyPaid == false
+        {
             let alert = UIAlertController(title: "Not enough money", message: nil, preferredStyle: UIAlertController.Style.alert)
             
             let okay = UIAlertAction(title: "Try Again", style: .default)
             alert.addAction(okay)
             present(alert, animated: true, completion: nil)
-            if okay.isEnabled {
-            }
         }
 
     }
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    
+    override func viewWillAppear(_ animated: Bool) {
+        print("will appear")
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
+    {
         return seriesImage.count
     }
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
+    {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CollectionViewCell
         cell.image.image = UIImage(named: seriesImage[indexPath.row])
         return cell
