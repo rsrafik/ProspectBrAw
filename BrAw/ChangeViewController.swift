@@ -16,13 +16,13 @@ class ChangeViewController: UIViewController, UICollectionViewDataSource, UIColl
     var amountDue = Double()
     var amountPaid = Double()
     @IBOutlet weak var changeDue: UILabel!
-    var fullyPaid = true
-    let alert = UIAlertController()
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        let change = amountPaid - amountDue
+        let amountPaid2 = String(format: "%.2f", amountPaid)
+        let amountPaid3 = Double(amountPaid2)!
+        let change = amountPaid3 - amountDue
         let myDouble = String(format: "%.2f", change)
         changeDue.text = "$\(myDouble)"
         
@@ -69,27 +69,11 @@ class ChangeViewController: UIViewController, UICollectionViewDataSource, UIColl
                     seriesImage.append("5")
                 }
             }
-            fullyPaid = true
-        } else {
-            fullyPaid = false
         }
         
         if seriesImage.count > 2 {
             scroll.text = "SCROLL TO SEE ALL CHANGE"
         }
-    }
-    
-    override func viewDidAppear(_ animated: Bool)
-    {
-        if fullyPaid == false
-        {
-            let alert = UIAlertController(title: "Not enough money", message: nil, preferredStyle: UIAlertController.Style.alert)
-            
-            let okay = UIAlertAction(title: "Try Again", style: .default)
-            alert.addAction(okay)
-            present(alert, animated: true, completion: nil)
-        }
-
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int

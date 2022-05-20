@@ -11,6 +11,7 @@ class CheckoutViewController: UIViewController, UICollectionViewDataSource, UICo
     @IBOutlet weak var collectionView: UICollectionView!
     
     var totalPay: [Double] = []
+    let alert = UIAlertController()
     
     override func viewDidLoad()
     {
@@ -82,6 +83,8 @@ class CheckoutViewController: UIViewController, UICollectionViewDataSource, UICo
     {
         totalPay.removeAll()
         totalPaid.text = "$0.00"
+        images.removeAll()
+        collectionView.reloadData()
     }
     
     func pressed(i: Double)
@@ -97,6 +100,20 @@ class CheckoutViewController: UIViewController, UICollectionViewDataSource, UICo
         lvc.amountPaid = sum
         lvc.amountDue = amountDue
     }
+    
+    @IBAction func segue(_ sender: Any) {
+        if amountDue <= totalPay.reduce(0,+) {
+        self.performSegue(withIdentifier: "segue", sender: self)
+            
+        } else if amountDue > totalPay.reduce(0,+) {
+            let alert = UIAlertController(title: "Not enough money", message: nil, preferredStyle: UIAlertController.Style.alert)
+            
+            let okay = UIAlertAction(title: "Try Again", style: .default)
+            alert.addAction(okay)
+            present(alert, animated: true, completion: nil)
+        }
+    }
+    
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return images.count
