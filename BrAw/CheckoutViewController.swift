@@ -66,6 +66,13 @@ class CheckoutViewController: UIViewController, UICollectionViewDataSource, UICo
         collectionView.reloadData()
     }
     
+    @IBAction func whenTwentyPressed(_ sender: Any) {
+        pressed(i: 20.00)
+        images.append("twentyDollar")
+        collectionView.reloadData()
+    }
+    
+    
     func moneyOwed() -> String {
         let sum = totalPay.reduce(0,+)
         let myDouble = String(format: "%.2f", sum)
