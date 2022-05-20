@@ -22,9 +22,7 @@ class ChangeViewController: UIViewController, UICollectionViewDataSource, UIColl
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        var change = amountPaid - amountDue
-        change = abs(change)
-        print(change)
+        let change = amountPaid - amountDue
         let myDouble = String(format: "%.2f", change)
         changeDue.text = "$\(myDouble)"
         
@@ -39,7 +37,12 @@ class ChangeViewController: UIViewController, UICollectionViewDataSource, UIColl
         {
             while z >= 0.01
             {
-                while (z >= 5)
+                while (z >= 10)
+                {
+                    z -= 10
+                    seriesImage.append("tenDollar")
+                }
+                while (z >= 5 && z < 10)
                 {
                     z -= 5
                     seriesImage.append("fiveDollar")
@@ -65,8 +68,6 @@ class ChangeViewController: UIViewController, UICollectionViewDataSource, UIColl
                     z -= 0.05
                     seriesImage.append("5")
                 }
-                print(z)
-                
             }
             fullyPaid = true
         } else {
@@ -89,10 +90,6 @@ class ChangeViewController: UIViewController, UICollectionViewDataSource, UIColl
             present(alert, animated: true, completion: nil)
         }
 
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        print("will appear")
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int

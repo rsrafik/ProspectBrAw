@@ -35,7 +35,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         items.append(newItem)
         tableView.reloadData()
         total.append(1.00)
-        print(total)
         totalCounter.text = "$\(moneyOwed())"
     }
     

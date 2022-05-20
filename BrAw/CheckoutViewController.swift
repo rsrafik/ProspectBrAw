@@ -91,9 +91,6 @@ class CheckoutViewController: UIViewController, UICollectionViewDataSource, UICo
         lvc.amountDue = amountDue
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        print("view disapeared")
-    }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return images.count
     }
