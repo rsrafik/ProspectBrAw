@@ -168,11 +168,6 @@
                                             <action selector="whenClearPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bSy-Vx-mEN"/>
                                         </connections>
                                     </button>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="whiteMenuIcon" translatesAutoresizingMaskIntoConstraints="NO" id="H64-k0-OK6">
-                                        <rect key="frame" x="0.0" y="0.0" width="73" height="73"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <gestureRecognizers/>
-                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.41209024189999999" green="0.44338828330000002" blue="0.32037302849999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
@@ -668,6 +663,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="qMb-NY-vBW"/>
         <segue reference="PZ2-42-zjw"/>
     </inferredMetricsTieBreakers>
     <resources>
@@ -682,7 +678,6 @@
         <image name="tea" width="732" height="1014"/>
         <image name="tenDollar" width="400" height="123"/>
         <image name="twentyDollar" width="400" height="200"/>
-        <image name="whiteMenuIcon" width="500" height="500"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
