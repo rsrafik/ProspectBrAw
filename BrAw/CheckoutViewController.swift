@@ -79,6 +79,7 @@ class CheckoutViewController: UIViewController, UICollectionViewDataSource, UICo
         let myDouble = String(format: "%.2f", sum)
         return myDouble
     }
+    
     @IBAction func clear(_ sender: Any)
     {
         totalPay.removeAll()
@@ -95,10 +96,12 @@ class CheckoutViewController: UIViewController, UICollectionViewDataSource, UICo
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
-        let sum = totalPay.reduce(0,+)
-        let lvc = segue.destination as! ChangeViewController
-        lvc.amountPaid = sum
-        lvc.amountDue = amountDue
+        if segue.identifier == "segue" {
+            let sum = totalPay.reduce(0,+)
+            let lvc = segue.destination as! ChangeViewController
+            lvc.amountPaid = sum
+            lvc.amountDue = amountDue
+        }
     }
     
     @IBAction func segue(_ sender: Any) {
@@ -113,7 +116,6 @@ class CheckoutViewController: UIViewController, UICollectionViewDataSource, UICo
             present(alert, animated: true, completion: nil)
         }
     }
-    
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return images.count
