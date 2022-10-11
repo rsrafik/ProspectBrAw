@@ -539,21 +539,21 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="JAj-0b-mi5">
-                                    <size key="itemSize" width="303" height="142"/>
+                                    <size key="itemSize" width="257" height="116.8"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="Pvb-N4-Lcy" customClass="CollectionViewCell" customModule="BrAw" customModuleProvider="target">
-                                        <rect key="frame" x="109.5" y="0.0" width="303" height="142"/>
+                                        <rect key="frame" x="132.5" y="0.0" width="257" height="111.8"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="lxX-S8-sJr">
-                                            <rect key="frame" x="0.0" y="0.0" width="303" height="142"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="257" height="111.8"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XeZ-on-CNh">
-                                                    <rect key="frame" x="0.0" y="0.0" width="303" height="142"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="257" height="112"/>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
@@ -563,7 +563,7 @@
                                                 <constraint firstAttribute="bottom" secondItem="XeZ-on-CNh" secondAttribute="bottom" id="icS-OZ-egk"/>
                                             </constraints>
                                         </collectionViewCellContentView>
-                                        <size key="customSize" width="303" height="142"/>
+                                        <size key="customSize" width="257" height="111.8"/>
                                         <connections>
                                             <outlet property="image" destination="XeZ-on-CNh" id="jnT-HT-g64"/>
                                         </connections>
@@ -663,8 +663,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="qMb-NY-vBW"/>
-        <segue reference="PZ2-42-zjw"/>
+        <segue reference="2NE-5J-Sl0"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="1" width="100" height="100"/>
