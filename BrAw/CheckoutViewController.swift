@@ -3,6 +3,8 @@ import UIKit
 class CheckoutViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate
 {
     
+    
+    @IBOutlet weak var totalDue: UILabel!
     var moneyUsed: [String] = []
     var amountDue = Double()
     var images: [String] = []
@@ -16,6 +18,7 @@ class CheckoutViewController: UIViewController, UICollectionViewDataSource, UICo
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        totalDue.text = "$" + String(format: "%.2f", amountDue)
         
     }
 
