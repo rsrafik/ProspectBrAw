@@ -76,6 +76,15 @@ class CheckoutViewController: UIViewController, UICollectionViewDataSource, UICo
         collectionView.reloadData()
     }
     
+    @IBAction func whenPunchCardPressed(_ sender: Any) {
+        pressed(i: amountDue)
+    }
+    
+    @IBAction func whenCreditCardPressed(_ sender: Any) {
+        pressed(i: amountDue)
+    }
+    
+    
     
     func moneyOwed() -> String {
         let sum = totalPay.reduce(0,+)

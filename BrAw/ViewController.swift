@@ -21,17 +21,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     @IBAction func whenCoffeeImgPressed(_ sender: Any)
     {
-        let newItem = "Coffee"
+        let newItem = "Hot Coffee/ Hot Chocolate/ Hot Tea"
         items.append(newItem)
         tableView.reloadData()
-        total.append(1.75)
+        total.append(1.00)
         totalCounter.text = "$\(moneyOwed())"
         
     }
     
     @IBAction func whenTeaImgPressed(_ sender: Any)
     {
-        let newItem = "Tea"
+        let newItem = "Iced Tea"
         items.append(newItem)
         tableView.reloadData()
         total.append(1.00)
@@ -40,10 +40,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBAction func whenFlavorPressed(_ sender: Any)
     {
-        let newItem = "Flavor"
+        let newItem = "Iced Coffee"
         items.append(newItem)
         tableView.reloadData()
-        total.append(0.25)
+        total.append(2.00)
         totalCounter.text = "$\(moneyOwed())"
     }
     
